@@ -21,13 +21,13 @@ func GetPerson(w http.ResponseWriter, r *http.Request) {
 	rv := bellt.RouteVariables(r)
 	idPerson := rv.GetVar("id")
 
-	var personFinded Person
+	var foundPerson Person
 	for _, person := range People {
 		if person.ID == idPerson {
-			personFinded = person
+			foundPerson = person
 			break
 		}
 	}
 
-	json.NewEncoder(w).Encode(personFinded)
+	json.NewEncoder(w).Encode(foundPerson)
 }
